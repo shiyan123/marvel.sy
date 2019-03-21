@@ -12,7 +12,7 @@ import (
 	"fmt"
 
 	"github.com/garyburd/redigo/redis"
-	"marvel.sy/common/util"
+	"github.com/shiyan123/marvel.sy/common/util"
 )
 
 //const (
