@@ -1,8 +1,9 @@
 package errors
 
-import "custom-switch/common/dto"
+import (
+
+)
 
 var (
-	RespErrorOK      = dto.RespWriteErrorWithCode(0, "ok")
-	ErrInvalidParams = dto.RespWriteErrorWithCode(10000, "参数错误")
+
 )

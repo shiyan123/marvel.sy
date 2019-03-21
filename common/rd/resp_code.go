@@ -34,10 +34,6 @@ type ErrorType struct {
 	ErrorMsg   string
 }
 
-func Error(err *ErrorType, c *gin.Context) {
-	c.AbortWithStatusJSON(err.StatusCode, NewRespModelWithErrType(err))
-}
-
 func JSON(data interface{}, c *gin.Context) {
 	res := NewRespModel(data)
 	c.JSON(http.StatusOK, res)
@@ -91,8 +87,8 @@ func NewPaging(currentPage, pageSize, total int) *Paging {
 	}
 }
 
-func NewRespModelWithErrType(err *ErrorType) *RespModel {
+func RespWriteErrorWithCode(errCode int, msg string) *RespModel {
 	return &RespModel{
-		Meta: &RespMeta{ErrCode: err.ErrorCode, ErrMsg: err.ErrorMsg},
+		Meta: &RespMeta{ErrCode: errCode, ErrMsg: msg},
 	}
 }
