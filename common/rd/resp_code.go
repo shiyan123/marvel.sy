@@ -1,10 +1,5 @@
 package rd
 
-import (
-	"github.com/gin-gonic/gin"
-	"net/http"
-)
-
 const (
 	ErrCode_Success = 0
 	ErrMsg_Success  = "success"
@@ -34,14 +29,12 @@ type ErrorType struct {
 	ErrorMsg   string
 }
 
-func JSON(data interface{}, c *gin.Context) {
-	res := NewRespModel(data)
-	c.JSON(http.StatusOK, res)
+func Data(data interface{}) interface{}{
+	return NewRespModel(data)
 }
 
-func JSONPaging(data interface{}, currentPage, pageSize, total int, c *gin.Context) {
-	res := NewRespModelWithPaging(data, currentPage, pageSize, total)
-	c.JSON(http.StatusOK, res)
+func DataPaging(data interface{}, currentPage, pageSize, total int)interface{} {
+	return NewRespModelWithPaging(data, currentPage, pageSize, total)
 }
 
 func NewRespModel(data interface{}) *RespModel {
